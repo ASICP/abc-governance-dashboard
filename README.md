@@ -1,11 +1,11 @@
-# SAIT Governance Dashboard
+# ABC Governance Dashboard
 
-A comprehensive real-time dashboard for monitoring the SAIT Token Ecosystem, including token circulation, treasury reserves, buyback analytics, and forward-looking projections.
+A comprehensive real-time dashboard for monitoring the ABC Token Ecosystem, including token circulation, treasury reserves, buyback analytics, and forward-looking projections.
 
 ## Features
 
 ### Real-Time Metrics
-- **SAIT Price Tracking**: Live price data with premium ratio to SAT backing
+- **ABC Price Tracking**: Live price data with premium ratio to SAT backing
 - **Market Cap**: Total market capitalization and % of AI market ($16.2T)
 - **Circulating Supply**: Current circulation with buyback-adjusted figures
 - **Treasury Value**: Combined SAIT + SAT treasury holdings
@@ -43,8 +43,9 @@ MetaMask or compatible Web3 wallet
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/Mbastidas001/SAIToken_v2.git
-cd SAIToken_v2
+git clone https://github.com/ASICP/abc-governance-dashboard.git
+cd abc-governance-dashboard
+
 ```
 
 ### 2. Install Dependencies
@@ -78,7 +79,7 @@ Edit `web3-service.js` and update with your deployed contract addresses:
 
 ```javascript
 const CONTRACTS = {
-  SAITToken: '0xYourSAITTokenAddress',
+  SAITToken: '0xYourABCTokenAddress',
   GovernanceStaking: '0xYourGovernanceAddress',
   AIFundVault: '0xYourAIFundVaultAddress',
   TreasuryVault: '0xYourTreasuryVaultAddress',
@@ -105,7 +106,7 @@ REACT_APP_PRICE_ORACLE_ADDRESS=0x...
 
 Your smart contracts must expose the following view functions:
 
-#### SAITToken.sol
+#### ABCToken.sol
 ```solidity
 function totalSupply() external view returns (uint256);
 function getCirculatingSupply() external view returns (uint256);
@@ -126,10 +127,10 @@ function getVotingPower(address account) external view returns (uint256);
 function proposals(uint256 id) external view returns (Proposal memory);
 ```
 
-#### SAITSATSwap.sol
+#### ABCSwap.sol
 ```solidity
 function getBuybackRate() external view returns (uint256);
-function totalSAITSwapped() external view returns (uint256);
+function totalABCSwapped() external view returns (uint256);
 function totalSATReceived() external view returns (uint256);
 ```
 
@@ -143,7 +144,7 @@ npm start
 yarn start
 ```
 
-Dashboard will be available at `http://localhost:3000`
+Dashboard will be available at `http://localhost:3001`
 
 ### Build for Production
 
@@ -176,7 +177,7 @@ The dashboard calculates:
 
 Formula:
 ```
-Buyback Runway = (SAT Reserves × $150) / (Circulating SAIT × Buyback Rate × SAIT Price)
+Buyback Runway = (SAT Reserves × $150) / (Circulating ABC × Buyback Rate × ABC Price)
 ```
 
 ### Interpreting Projections
@@ -186,19 +187,19 @@ Projections use conservative assumptions from the ASIP whitepaper:
 **Year 1-2**: 1% monthly price growth  
 **Year 2-3**: 1.5% monthly price growth  
 **Buyback Rate**: 1.5% monthly (Year 1 end target)  
-**Treasury Sales**: 1.5M SAIT annually (5% limit)  
+**Treasury Sales**: 1.5M ABC annually (5% limit)  
 **SAT Backing**: 150% overcollateralization maintained
 
 ## Data Sources
 
 ### On-Chain Data (Real-time)
-- SAIT token balances and circulation
-- Vault holdings and vesting schedules
+- ABC token balances and circulation
+- ABCVault holdings and vesting schedules
 - Governance proposals and votes
 - Swap transactions and buybacks
 
 ### Off-Chain Data (Oracle-based)
-- SAIT market price (Chainlink or Uniswap TWAP)
+- ABC market price (Chainlink or Uniswap TWAP)
 - Commodity prices for SAT basket (Chainlink)
 - Historical price data
 
@@ -213,12 +214,12 @@ Projections use conservative assumptions from the ASIP whitepaper:
 
 ```
 ┌─────────────────────────────────────────┐
-│     SAIT Governance Dashboard (React)    │
+│     ABC Governance Dashboard (React)    │
 └──────────────┬──────────────────────────┘
                │
                ├─── Web3 Service (ethers.js)
                │    │
-               │    ├─── SAITToken Contract
+               │    ├─── ABCToken Contract
                │    ├─── Vault Contracts (4)
                │    ├─── Governance Contract
                │    └─── Swap Contract
@@ -259,31 +260,31 @@ runway = (satReserves × 150) / (circulation × buybackRate × saitPrice)
 
 ### SAT Reserve Growth
 ```javascript
-// From SAIT treasury sales
-proceeds = saitSold × avgPrice
+// From ABC treasury sales
+proceeds = abcSold × avgPrice
 newSAT = (proceeds / 150) × 0.667 // 150% overcollateralization
 satReserves += newSAT
 ```
 
 ## Whitepaper Alignment
 
-The dashboard implements the economic model from **SAITSATEQv5.pdf**:
+The dashboard implements the economic model from **abc-governance.pdf**:
 
 ### Year 1 (2026)
 - Launch Price: $150 (treasury parity)
-- Circulating: 10M SAIT
+- Circulating: 10M ABC
 - Market Cap: $1.5B
 - Buyback Rate: 0.3% → 1.5% monthly
 
 ### Year 2 (2027)
 - Target Price: $200
-- Circulating: 20M SAIT
+- Circulating: 20M ABC
 - Market Cap: $4B
-- Premium Ratio: 1.33:1
+- Premium Ratio: 1.66:1
 
 ### Year 3 (2028)
 - Fair Value: $300
-- Circulating: 30M SAIT
+- Circulating: 30M ABC
 - Market Cap: $9B
 - Premium Ratio: 2:1
 
@@ -366,8 +367,8 @@ aws cloudfront create-invalidation --distribution-id YOUR_ID --paths "/*"
 
 ### Docker Deployment
 ```bash
-docker build -t sait-dashboard .
-docker run -p 3000:3000 sait-dashboard
+docker build -t abc-governance-dashboard .
+docker run -p 3000:3000 abc-governance-dashboard
 ```
 
 ## Roadmap

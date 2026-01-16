@@ -1,0 +1,77 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww20520\viewh15480\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+Verification Phase: bridge between work done and money paid\
+\
+The protocol replaces a centralized manager with a decentralized "court of experts."\
+\
+The Bounty Verification Logic has 2 components: (A) the "Expert Court", followed by (B) the Curation Logic (ie "Wisdom of Crowds").\
+\
+A)  The Bounty Verification Flow ("The Expert Court")\
+Used for releasing funds ($500 - $100k) after a researcher claims to be finished.\
+\
+The Visual Scene:\
+\
+The Submission: A researcher uploads their code/PDF. This is sealed with a digital fingerprint (IPFS Hash) so it can't be changed later.\
+The Summoning: The Smart Contract randomly selects 3-5 Platinum Tier curators (Authority Score > 2,000). They get a notification/ping: "New Verification Task Pending."\
+\
+\
+Bounty Verification Mermaid:\
+\
+sequenceDiagram\
+    participant R as Researcher\
+    participant C as Smart Contract\
+    participant V as Verifier Pool (Platinum)\
+    participant W as Researcher Wallet\
+\
+    rect rgb(20, 20, 30)\
+        Note over R, C: Phase 1: Submission\
+        R->>C: Submit Work (IPFS Hash)\
+        C->>C: Lock State: "Under Review"\
+    end\
+\
+    rect rgb(30, 30, 40)\
+        Note over C, V: Phase 2: The Summoning\
+        C->>V: Randomly select 3 Verifiers\
+        V-->>R: (Notification sent)\
+    end\
+\
+    rect rgb(40, 40, 50)\
+        Note over V, C: Phase 3: The Verdict (72h Window)\
+        V->>V: Review Proof of Work\
+        V->>C: Vote: \uc0\u9989  Approve or \u10060  Reject\
+    end\
+\
+    rect rgb(20, 50, 20)\
+        Note over C, W: Phase 4: Execution\
+        alt Majority = Approve\
+            C->>W: \uc0\u55357 \u56496  Release $10,000 Bounty\
+            C->>V: \uc0\u55357 \u56504  Pay 1% Fee ($100)\
+            C->>C: Mint "Completed" NFT\
+        else Majority = Reject\
+            C->>R: Return Status "Rejected"\
+            C->>C: Slash Reputation (if fraud)\
+        end\
+    end\
+\
+\
+B. The Curation Verification Flow ("The Wisdom of Crowds")\
+Used for verifying the quality of a paper (Breakthrough vs. Noise).\
+\
+The Visual Scene:\
+\
+Staking: 10 different researchers enter a room. To speak, they must put $50 on the table (Stake).\
+Secret Ballot: They each write their rating of a paper on a card (Breakthrough, Valuable, or Noise). They drop it in a box. They cannot copy each other.\
+The Reveal: After the timer ends, the box opens.\
+The Convergence:\
+If 7 say "Valuable" and 3 say "Noise", the Truth is "Valuable."\
+The 7 who agreed get their $50 back + profit.\
+The 3 who were wrong lose a portion of their $50.\
+Note: High Authority curators have "louder voices" (weighted voting).\
+\
+visualizing the result: Imagine a heat map on the paper. If the map is tight and red-hot around "Valuable", verification is successful and confidence is high. If the map is scattered all over, verification failed (low confidence).}

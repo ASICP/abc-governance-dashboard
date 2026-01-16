@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import SAITGovernanceDashboard from './components/GovernanceDashboard';
+import ABCDashboard from './components/ABCDashboard';
 import web3Service from './services/web3Service';
 import './App.css';
 
@@ -87,15 +87,37 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo and Title */}
-            <div className="flex items-center">
-              <div className="flex-shrink-0">
-                <svg className="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                </svg>
+            <div className="flex items-center space-x-6">
+              <div className="flex items-center">
+                <div className="flex-shrink-0">
+                  <svg className="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                </div>
+                <div className="ml-3">
+                  <h1 className="text-xl font-bold text-gray-900">ASIP Governance</h1>
+                  <p className="text-xs text-gray-500">Aligned Sovereign Intelligence Protocol</p>
+                </div>
               </div>
-              <div className="ml-3">
-                <h1 className="text-xl font-bold text-gray-900">ASIP Governance</h1>
-                <p className="text-xs text-gray-500">Aligned Sovereign Intelligence Protocol</p>
+
+              {/* Dashboard Toggle */}
+              <div className="flex space-x-2 bg-gray-100 rounded-lg p-1">
+                <button
+                  className="px-4 py-2 text-sm font-medium rounded transition-all bg-white text-blue-600 shadow-sm cursor-default"
+                >
+                  ABC Protocol
+                </button>
+                <a
+                  href="https://govdash.asi2.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 text-sm font-medium rounded transition-all text-gray-600 hover:text-gray-900 hover:bg-white/50 flex items-center space-x-1"
+                >
+                  <span>SAIT Token</span>
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
               </div>
             </div>
 
@@ -162,11 +184,7 @@ function App() {
       )}
 
       {/* Main Dashboard */}
-      <SAITGovernanceDashboard 
-        isConnected={isConnected}
-        account={account}
-        useMockData={useMockData}
-      />
+      <ABCDashboard />
 
       {/* Footer */}
       <footer className="bg-gray-50 border-t border-gray-200 mt-12">

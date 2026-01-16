@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASI Alignment Grant Program - FAQ</title>
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --bg-color: #f9f9f9;
+            --text-color: #333;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--bg-color);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #111;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 15px;
+            margin-top: 0;
+        }
+
+        h2 {
+            margin-top: 40px;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .intro,
+        .disclaimer,
+        .version {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .contact-box {
+            background: #f0f7ff;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+
+        ul {
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        /* Accordion Style */
+        details {
+            margin-bottom: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        summary {
+            background-color: #fff;
+            padding: 15px;
+            cursor: pointer;
+            font-weight: 600;
+            list-style: none;
+            /* Hide default triangle */
+            position: relative;
+            transition: background 0.2s;
+        }
+
+        summary:hover {
+            background-color: #f8f9fa;
+        }
+
+        summary::after {
+            content: '+';
+            position: absolute;
+            right: 15px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        details[open] summary::after {
+            content: '-';
+        }
+
+        details[open] summary {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .answer {
+            padding: 20px;
+            background: #fff;
+            font-size: 0.95rem;
+        }
+
+        .answer h4 {
+            margin-top: 15px;
+            margin-bottom: 5px;
+            color: #444;
+        }
+
+        .answer ul {
+            padding-left: 20px;
+        }
+
+        /* WordPress Compatibility */
+        .wp-block-details {
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>ASI Alignment Grant Program FAQ</h1>
+        <div class="version">Version 1.0 | December 2025</div>
+
+        <p class="intro">Welcome to the ASI Alignment Grant Program FAQ. This document addresses common questions
+            regarding our non-dilutive funding mechanism for AI safety research.</p>
+
+        <div class="contact-box">
+            <strong>Quick Links:</strong><br>
+            Apply: <a href="mailto:grants@asi2.org">grants@asi2.org</a> |
+            Gov Dashboard: <a href="https://govdash.asi2.org">govdash.asi2.org</a> |
+            Website: <a href="https://asi2.org">asi2.org</a>
+        </div>
+
+        <!-- SECTION 1 -->
+        <h2>1. Grant Program Overview</h2>
+
+        <details>
+            <summary>1.1 What is the ASI Alignment Grant Program?</summary>
+            <div class="answer">
+                <p>The ASI Alignment Grant Program provides <strong>non-dilutive funding</strong> (no equity taken) for
+                    AI safety research via a Swiss-based governance structure. Researchers receive SAT tokens (pegged at
+                    $150 USD) convertible to fiat, ensuring full autonomy over their work.</p>
+                <ul>
+                    <li><strong>No Equity:</strong> You keep 100% ownership.</li>
+                    <li><strong>Patient Capital:</strong> 36-month cycles.</li>
+                    <li><strong>Open Source:</strong> Funded research must remain public.</li>
+                    <li><strong>Fast Decisions:</strong> 60-day timeline.</li>
+                </ul>
+            </div>
+        </details>
+
+        <details>
+            <summary>1.2 What are the grant tiers and funding amounts?</summary>
+            <div class="answer">
+                <h4>Tier 1: Targeted Projects ($50k+)</h4>
+                <p>For tools, datasets, and pilots. Duration: 6-12 months.</p>
+                <h4>Tier 2: Applied Research ($250k+)</h4>
+                <p>For research with commercial/real-world application. Duration: 12-24 months.</p>
+                <h4>Tier 3: Transformational Research ($1M+)</h4>
+                <p>For high-risk, foundational breakthroughs. Duration: 24-36 months.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>1.3 How does selection work?</summary>
+            <div class="answer">
+                <ol>
+                    <li><strong>Admin Review (2 weeks):</strong> Eligibility and budget check.</li>
+                    <li><strong>Committee Review (3 weeks):</strong> Expert scoring on merit, feasibility, and impact.
+                        Top 30-40% proceed.</li>
+                    <li><strong>Token Holder Vote (7 days):</strong> Community finalizes winners.</li>
+                    <li><strong>Award (48 hours):</strong> Board confirmation and disbursement.</li>
+                </ol>
+            </div>
+        </details>
+
+        <details>
+            <summary>1.4 Can individual researchers apply directly?</summary>
+            <div class="answer">
+                <p><strong>Yes.</strong> You do not need a university affiliation.</p>
+                <ul>
+                    <li><strong>Direct-to-Researcher:</strong> Grants paid to you personally. No overhead fees.</li>
+                    <li><strong>Institutional:</strong> Grants paid to your university (overhead may apply).</li>
+                </ul>
+            </div>
+        </details>
+
+        <details>
+            <summary>1.5 What costs are eligible?</summary>
+            <div class="answer">
+                <p>Funds can cover personnel (salaries, stipends), compute (GPUs, cloud), equipment, data acquisition,
+                    and travel/conferences. We expect a realistic budget breakdown in your proposal.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>1.6 What counts as "AI Safety"?</summary>
+            <div class="answer">
+                <p>We fund work in Alignment, Robustness, Interpretability, Governance, Scalable Oversight, and Safety
+                    Infrastructure. Your proposal must articulate the pathway to safer AI systems.</p>
+            </div>
+        </details>
+
+        <!-- SECTION 2 -->
+        <h2>2. Operations & Logistics</h2>
+
+        <details>
+            <summary>2.1 What is the legal entity?</summary>
+            <div class="answer">
+                <p>Currently a US LLC; transitioning to a <strong>Swiss Foundation</strong> structure in 2026 for
+                    neutrality and regulatory clarity (modeled after ETH AI Center).</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>2.2 How do payments work?</summary>
+            <div class="answer">
+                <p>Grants are paid in <strong>SAT tokens</strong> (stablecoin pegged to $150). You can convert these
+                    immediately to USD/EUR/CHF via partners like Wise or Deel. No vesting for Tier 1; milestone-based
+                    releases for Tiers 2 & 3.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>2.3 Is there KYC/AML verification?</summary>
+            <div class="answer">
+                <p>Yes. As a Swiss compliant entity, we require identity verification (Passport/ID + Proof of Address)
+                    via Sumsub. Data is encrypted and GDPR compliant.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>2.4 What if I miss a milestone?</summary>
+            <div class="answer">
+                <p>Communication is key. If you are behind, notify your Grant Lead early. We allow 30-60 day remediation
+                    periods. Persistent failures may result in scope adjustment or termination.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>2.5 Can I hire team members/subcontract?</summary>
+            <div class="answer">
+                <p>Yes. You can hire RAs, engineers, or consultants. Subcontracts >$50k require pre-approval. You remain
+                    responsible for deliverables and open-source compliance.</p>
+            </div>
+        </details>
+
+        <!-- SECTION 3 -->
+        <h2>3. Strategic Positioning</h2>
+
+        <details>
+            <summary>3.1 How is ASI different from OpenPhil or FLI?</summary>
+            <div class="answer">
+                <p>ASI focuses on <strong>neutrality and speed</strong>. We use tokenized governance for transparency,
+                    offer patient 3-year timelines, and fund individuals directly without the "friends of the board"
+                    bias common in traditional philanthropy.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>3.2 Can I raise VC funding later?</summary>
+            <div class="answer">
+                <p><strong>Yes, encouraged.</strong> We fund the risky research phase. If you build a product, you own
+                    the IP and company 100%. We take no equity.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>3.3 How do you prevent conflicts of interest?</summary>
+            <div class="answer">
+                <p>Committees must recuse themselves for personal/financial conflicts. Initial scoring is
+                    blind/anonymized. Final winners are chosen by distributed token holder voting, preventing insider
+                    favoritism.</p>
+            </div>
+        </details>
+
+        <!-- SECTION 4 -->
+        <h2>4. Legal & Regulatory</h2>
+
+        <details>
+            <summary>4.1 Are grants taxable?</summary>
+            <div class="answer">
+                <p><strong>Yes, usually.</strong> US researchers receive a 1099 form. International tax treatment
+                    varies; consult a local professional. We provide Swiss tax certificates to assist.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>4.2 What is the IP policy?</summary>
+            <div class="answer">
+                <p><strong>You own your IP.</strong> ASI takes zero rights. However, you must publish results
+                    <strong>open-source</strong> (arXiv, GitHub) within 6 months of completion. You are free to file
+                    patents.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>4.3 Can sanctioned countries apply?</summary>
+            <div class="answer">
+                <p>We follow Swiss regulations (SECO). Residents of UN-sanctioned countries (e.g., North Korea) are
+                    ineligible. Most others are eligible, subject to compliance checks.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>4.4 What if my university demands IP ownership?</summary>
+            <div class="answer">
+                <p>If applying through the university, their policy applies. If applying directly, you retain ownership,
+                    but check your employment contract regarding use of university resources.</p>
+            </div>
+        </details>
+
+        <div class="disclaimer">
+            <em>Disclaimer: This FAQ is for informational purposes only. Please consult your own legal and tax
+                advisors.</em>
+        </div>
+    </div>
+    <!-- End of FAQ Container -->
+
+</body>
+
+</html>
