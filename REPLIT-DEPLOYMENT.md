@@ -31,8 +31,9 @@ REACT_APP_RESEARCH_CURATION_ADDRESS=0x003621C2c90F7d746eA59a0CFb52a9032d830E94
 REACT_APP_USDC_ADDRESS=0xC3dFB364D72CF09C2E15794F2bcce2298c5bc99a
 REACT_APP_USDT_ADDRESS=0x0d6815f58448CF0a588cA3401FB26fE09D2D607A
 
-# Data Mode (false = pure Sepolia live data for production)
-REACT_APP_USE_MOCK_DATA=false
+# Hybrid Mode (true = Mock baseline + Sepolia live data | false = Sepolia only)
+# Keep as true to show mock baseline with new Sepolia data added on top
+REACT_APP_USE_MOCK_DATA=true
 ```
 
 **CRITICAL:** Replace `YOUR_ALCHEMY_API_KEY` with your actual Alchemy API key!
@@ -83,16 +84,16 @@ If you don't have an Alchemy API key:
 After deployment, check:
 
 1. **Dashboard Loads** - Should see ABC Governance Dashboard
-2. **Data Source Indicator** - Should show "⛓️ Live Sepolia" (pure Sepolia mode)
-3. **Console Logs** - Check browser console for "⛓️ Using Sepolia data only"
-4. **Contract Queries** - Should see real on-chain data (not mock)
+2. **Data Source Indicator** - Should show "🔄 Mock + Sepolia" (hybrid mode)
+3. **Console Logs** - Check browser console for "🔄 Using hybrid mode: Mock baseline + Sepolia live data"
+4. **Contract Queries** - Should see mock baseline + new Sepolia data added on top
 
 ---
 
 ## Troubleshooting
 
-### Issue: Dashboard shows mock data
-- **Fix:** Check `REACT_APP_USE_MOCK_DATA=false` in Replit Secrets
+### Issue: Dashboard shows only mock data (no Sepolia queries)
+- **Fix:** Check `REACT_APP_USE_MOCK_DATA=true` and verify Alchemy API key is correct
 
 ### Issue: CORS errors
 - **Fix:** Verify Alchemy API key is correct in Replit Secrets
@@ -108,9 +109,10 @@ After deployment, check:
 ## Production Recommendations
 
 1. **RPC Provider:** Alchemy (better than Ankr for production)
-2. **Data Mode:** `REACT_APP_USE_MOCK_DATA=false` (pure Sepolia)
+2. **Data Mode:** `REACT_APP_USE_MOCK_DATA=true` (hybrid mode - mock baseline + Sepolia)
 3. **Monitoring:** Check browser console for errors
 4. **Updates:** Pull from GitHub when you push new changes
+5. **Future:** When sufficient real Sepolia data exists, can switch to `false` for pure Sepolia mode
 
 ---
 
