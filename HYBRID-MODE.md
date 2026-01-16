@@ -98,7 +98,7 @@ REACT_APP_USE_MOCK_DATA=false  # Pure Sepolia
 ### Key Files Modified
 
 1. **src/services/abcWeb3Service.js**
-   - Added `useHybridMode()` function
+   - Added `isHybridMode()` function
    - Modified `getDashboardData()` to merge mock + Sepolia
    - Graceful fallback on Sepolia errors
 

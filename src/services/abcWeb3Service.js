@@ -51,7 +51,7 @@ let provider;
 let contracts = {};
 
 // Check if we should use hybrid mode (mock + Sepolia)
-const useHybridMode = () => {
+const isHybridMode = () => {
   return process.env.REACT_APP_USE_MOCK_DATA === 'true';
 };
 
@@ -70,7 +70,7 @@ export const initializeWeb3 = () => {
     return null;
   }
 
-  if (useHybridMode()) {
+  if (isHybridMode()) {
     console.log('🔄 Using hybrid mode: Mock baseline + Sepolia live data');
   } else {
     console.log('⛓️ Using Sepolia data only');
@@ -126,7 +126,7 @@ export const getDashboardData = async () => {
   const mockData = await mockDataService.getMockDashboardData();
 
   // Hybrid mode: Use mock as baseline, overlay Sepolia data
-  if (useHybridMode()) {
+  if (isHybridMode()) {
     try {
       if (!contracts.abcToken || !contracts.treasury || !contracts.bountyProposal) {
         console.warn('Contracts not initialized, using mock data only');
@@ -203,7 +203,7 @@ export const getDashboardData = async () => {
  */
 export const getTreasuryHealth = async () => {
   // Use mock data if contracts not deployed
-  if (!hasContractAddresses() || useHybridMode()) {
+  if (!hasContractAddresses() || isHybridMode()) {
     return mockDataService.getMockTreasuryHealth();
   }
 
@@ -254,7 +254,7 @@ export const getTreasuryHealth = async () => {
  */
 export const getBountyPipeline = async () => {
   // Use mock data if contracts not deployed
-  if (!hasContractAddresses() || useHybridMode()) {
+  if (!hasContractAddresses() || isHybridMode()) {
     return mockDataService.getMockBountyPipeline();
   }
 
@@ -290,7 +290,7 @@ export const getBountyPipeline = async () => {
  */
 export const getActiveBounties = async (limit = 10) => {
   // Use mock data if contracts not deployed
-  if (!hasContractAddresses() || useHybridMode()) {
+  if (!hasContractAddresses() || isHybridMode()) {
     return mockDataService.getMockActiveBounties(limit);
   }
 
@@ -323,7 +323,7 @@ export const getActiveBounties = async (limit = 10) => {
  */
 export const getVerifierLeaderboard = async (limit = 20) => {
   // Use mock data if contracts not deployed
-  if (!hasContractAddresses() || useHybridMode()) {
+  if (!hasContractAddresses() || isHybridMode()) {
     return mockDataService.getMockVerifierLeaderboard(limit);
   }
 
@@ -366,7 +366,7 @@ export const getVerifierLeaderboard = async (limit = 20) => {
  */
 export const getProposalDetails = async (proposalId) => {
   // Use mock data if contracts not deployed
-  if (!hasContractAddresses() || useHybridMode()) {
+  if (!hasContractAddresses() || isHybridMode()) {
     return mockDataService.getMockProposalDetails(proposalId);
   }
 
@@ -399,7 +399,7 @@ export const getProposalDetails = async (proposalId) => {
  */
 export const getTotalFundedResearchers = async () => {
   // Use mock data if contracts not deployed
-  if (!hasContractAddresses() || useHybridMode()) {
+  if (!hasContractAddresses() || isHybridMode()) {
     return mockDataService.getMockTotalFundedResearchers();
   }
 
