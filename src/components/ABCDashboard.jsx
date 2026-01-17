@@ -61,25 +61,14 @@ const ABCDashboard = () => {
               <p className="text-blue-100">Aligned Beacon Commons Protocol - Real-time Metrics</p>
             </div>
             <div className="text-right">
-              <div className="flex items-center justify-end space-x-3 mb-3">
-                <div className="flex items-center bg-green-100 text-green-800 px-4 py-2 rounded-lg">
-                  <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                  <span className="font-semibold">Live Data (Sepolia)</span>
-                </div>
-                <div className="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg font-mono text-sm">
-                  Contract: {process.env.REACT_APP_ABC_TOKEN_ADDRESS || '0xeD883dff812dAB6C42Ae8Db58860171a780730Dc'}
-                </div>
-              </div>
-              <div>
-                <p className="text-sm text-blue-200">Last Updated</p>
-                <p className="text-lg font-semibold">{lastUpdated ? lastUpdated.toLocaleTimeString() : '--:--'}</p>
-                <button
-                  onClick={refresh}
-                  className="mt-2 px-3 py-1 bg-white/20 hover:bg-white/30 rounded text-sm"
-                >
-                  Refresh
-                </button>
-              </div>
+              <p className="text-sm text-blue-200">Last Updated</p>
+              <p className="text-lg font-semibold">{lastUpdated ? lastUpdated.toLocaleTimeString() : '--:--'}</p>
+              <button
+                onClick={refresh}
+                className="mt-2 px-3 py-1 bg-white/20 hover:bg-white/30 rounded text-sm"
+              >
+                Refresh
+              </button>
             </div>
           </div>
         </div>
